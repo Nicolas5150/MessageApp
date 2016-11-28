@@ -20,20 +20,19 @@ include("db_group4.php");
 ?>
 
 		<div id="container">
-
 			<h2>Welcome To Your Profile!</h2>
 
 			<div id="avatar">
 				<p>Avatar Picture based on gender</p>
 			</div>
 
-				<form action="" method="POST" enctype="multipart/form-data" >
-					Upload a Profile picture:<br><br>
-					<input type="file" name="file"><br><br>
-					<input type="submit" name="upload" value="Upload">
-				</form>
+			<form action="" method="POST" enctype="multipart/form-data" >
+				Upload a Profile picture:<br><br>
+				<input type="file" name="file"><br><br>
+				<input type="submit" name="upload" value="Upload">
+			</form>
 
-				<div id="phone">
+			<div id="phone">
 				<h2>Add a phone number to your contact list!</h2>
 				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				  First Name:<br>
@@ -58,9 +57,8 @@ include("db_group4.php");
 				  <input type="submit" name="submit" value="Submit">
 				</form>
 			</div>
-
+		</div>
 	</body>
-
 </html>
 
 <?php
