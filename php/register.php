@@ -1,6 +1,6 @@
 <?php
-session_start();
-include("db_group4.php");
+	session_start();
+	include("db_group4.php");
 ?>
 
 <!DOCTYPE html>

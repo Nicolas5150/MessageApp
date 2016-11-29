@@ -50,6 +50,9 @@ if (isset($_SESSION['loggedin'])) {
   		$_SESSION['logged_in_user'] = $username;
   		$_SESSION['firstname'] = $row[3];
 
+      // Need to find which way group wants to do session vars
+      $_SESSION['userDetails'][0] = $username;
+
   /*  Figure out which method will be better for assignment
       $_SESSION['userDetails'] = array();
       $_SESSION['userDetails'][] = $username;
@@ -59,8 +62,8 @@ if (isset($_SESSION['loggedin'])) {
       $_SESSION['userDetails'][] = $email;
       $_SESSION['userDetails'][] = $gender;
   */
-
-		echo "Hi, " . $_SESSION['logged_in_user'] . " you are logged in. You will be redirected to your Profile Page.";
+  		echo "Hi, " . $_SESSION['logged_in_user'] . " you are logged in. You will be redirected to your Profile Page.";
+      header("Refresh: 3; url=profile.php");
 		}
     else {
 			echo "<h5 class='loginerr'>Invalid Credentials. Please try again.</h5>";		//If no entry matches the query, a message displays.
