@@ -1,6 +1,6 @@
 <?php
 	// Checks to see if the person landing on the page is logged in.
-	if (!isset($_SESSION['loggedin'])) {
-		header("Refresh: 0, url=login.php");
+	if (!isset($_SESSION['userDetails'])) {
+		header("Location: index.php");
 	}
 ?>

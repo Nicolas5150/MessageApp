@@ -1,59 +1,64 @@
 <?php
 	session_start();
 	include("db_group4.php");
+	if (isset($_SESSION['userDetails'])) {
+    header("Refresh: 3; url=profile.php");
+  }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen"/>
-		<title>Project 4</title>
+	<link rel="stylesheet" type="text/css" href="../css/registerStyle.css" media="screen"/>
+		<title>Register</title>
 	</head>
 
 	<body>
-    <center>
-  		<div class="forms">
-  			<h1>Create your account here!</h1>
+		<ul>
+			<li><a href="profile.php">Home</a></li>
+			<li><a href="create.php">Create Message</a></li>
+			<li><a href="add.php">Add Recepients</a></li>
+			<li><a href="contacts.php">Contact List</a></li>
+		</ul>
+  	<div class="forms">
+  		<h1>Create your account here!</h1>
+  		<form method="POST" action="#">
+  			<p><span class="error">* required field</span></p><br><br>
+  					<input name="username" type="text" placeholder="Username" class="box" value="">
+  						<span class="error">* </span><br><br>
 
-  					<form method="POST" action="">
-  					<p><span class="error">* required field</span></p><br><br>
-  							<input name="username" type="text" placeholder="Username" class="box" value="">
-  								<span class="error">* </span><br><br>
+  					<input name="password" type="password" placeholder="Password" class="box" value="">
+  						<span class="error">* </span><br><br>
 
-  							<input name="password" type="password" placeholder="Password" class="box" value="">
-  								<span class="error">* </span><br><br>
+  					<input name="firstname" type="text" placeholder="First Name" class="box" value="">
+  						<span class="error">* </span><br><br>
 
-  							<input name="firstname" type="text" placeholder="First Name" class="box" value="">
-  								<span class="error">* </span><br><br>
+  					<input name="lastname" type="text" placeholder="Last Name" class="box" value="">
+  						<span class="error">* </span><br><br>
 
-  							<input name="lastname" type="text" placeholder="Last Name" class="box" value="">
-  								<span class="error">* </span><br><br>
+  					<input name="phone" type="text" placeholder="Phone Number" size="10" maxlength="10" class="box" value="">
+  					<span class="error">* </span>
+  						<select name="phonelocation">
+									<option  value="home">Home</option>
+  								<option  value="mobile">Mobile</option>
+  						</select> <br><br>
 
-  							<input name="phone" type="text" placeholder="Phone Number" size="10" maxlength="10" class="box" value="">
-  							<span class="error">* </span>
-  								<select name="phonelocation">
-  										<option  value="home">Home</option>
-  										<option  value="mobile">Mobile</option>
+  					<input name="email" type="text" placeholder="Email" class="box" value="">
+  						<span class="error">* </span><br><br>
 
-  								</select> <br><br>
+  					<select name="gender">
+  						<option  value="male">Male</option>
+							<option  value="female">Female</option>
+  					</select> <br><br>
 
-  							<input name="email" type="text" placeholder="Email" class="box" value="">
-  								<span class="error">* </span><br><br>
+  					<input type="submit" name="register" class="submit" value="Register"><br><br>
+  		</form>
 
-  							<select name="gender">
-  								<option  value="male">Male</option>
-  								<option  value="female">Female</option>
-  							</select> <br><br>
-
-  							<input type="submit" name="register" class="submit" value="Register"><br><br>
-  					</form>
-
-            <form action="login.php">
-              <input type="submit" value="Have An Account?" />
-            </form>
-        </div>
-    </center>
+      <form action="login.php">
+        <input type="submit" value="Have An Account?" />
+      </form>
+    </div>
   </body>
 </html>
 
@@ -125,12 +130,14 @@
       // Create an array that stores the user details as a session.
       $_SESSION['loggedin'] = true;
       $_SESSION['userDetails'] = array();
-      $_SESSION['userDetails'][] = $username;
-      $_SESSION['userDetails'][] = $firstname;
-      $_SESSION['userDetails'][] = $lastname;
-      $_SESSION['userDetails'][] = $phone;
-      $_SESSION['userDetails'][] = $email;
-      $_SESSION['userDetails'][] = $gender;
+			$_SESSION['userDetails'][0] = true;
+      $_SESSION['userDetails'][1] = $firstname;
+      $_SESSION['userDetails'][2] = $lastname;
+      $_SESSION['userDetails'][3] = $username;
+      $_SESSION['userDetails'][4] = $phone;
+			$_SESSION['userDetails'][5] = $phonelocation;
+      $_SESSION['userDetails'][6] = $email;
+      $_SESSION['userDetails'][7] = $gender;
 
 			echo "<h5 class='loginerr'>Account created. Let's go to your profile page.</h5>";
       // Create a new table in the database corresponding to the new user created.
@@ -146,11 +153,10 @@
 
       $tableResult = mysqli_query($connection, $newTable);
       if ($tableResult === TRUE) {
-        echo"it worked!";
         header("Refresh: 3; url=profile.php");		//redirects to the profile page.
       }
       else {
-        echo"nope";
+        echo"Error in creating user table";
       }
 		}
 	}
