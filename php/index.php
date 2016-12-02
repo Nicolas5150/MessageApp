@@ -8,22 +8,28 @@
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/indexStyle.css" media="screen"/>
-		<title>Login</title>
-	</head>
+  <head>
+    <title>Login</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="../css/basic_style.css" media="screen"/>
+    <script src="../js/navbar.js" type="text/javascript"></script>
+  </head>
 
 	<body>
-		<ul>
-			<li><a href="profile.php">Home</a></li>
-			<li><a href="create.php">Create Message</a></li>
-			<li><a href="add.php">Add Recepients</a></li>
-			<li><a href="contacts.php">Contact List</a></li>
-		</ul>
+    <ul class="topnav" id="myTopnav">
+      <li><a href="profile.php">Home</a></li>
+      <li><a href="create.php">Create Message</a></li>
+      <li><a href="add.php">Add Recepients</a></li>
+      <li><a href="contacts.php">Contact List</a></li>
+      <li class="icon">
+        <a href="#" style="font-size:15px;" onclick="myFunction()">☰</a>
+      </li>
+    </ul>
+
 		<h2>Welcome to the Message App, please log in to get started!</h2>
     <div class="forms">
-    	<h1> Log In to your account here!</h1>
+    	<h1>Log In to your account here!</h1>
     		<form action="#" method="POST">
     				<input name="username" type="text" placeholder="Username" class= "box" value=""><br>
     				<input name="password" type="password" placeholder="Password" class= "box" value=""><br>
@@ -59,11 +65,11 @@
       $_SESSION['userDetails'][6] = $row[7]; // email
       $_SESSION['userDetails'][7] = $row[8]; // gender
 
-  		echo "Hi, " . $_SESSION['userDetails'][3] . " you are logged in. You will be redirected to your Profile Page.";
+  		echo "<h2> Hi, " . $_SESSION['userDetails'][3] . "you are logged in. </br> You will be redirected to your Profile Page. </h2>";
       header("Refresh: 3; url=profile.php");
 		}
     else {
-			echo "<h5 class='loginerr'>Invalid Credentials. Please try again.</h5>";		//If no entry matches the query, a message displays.
+			echo "<h2 class='loginerr'>Invalid Credentials. Please try again.</h2>";		//If no entry matches the query, a message displays.
 		}
   }
 ?>

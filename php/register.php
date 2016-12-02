@@ -9,18 +9,24 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../css/registerStyle.css" media="screen"/>
 		<title>Register</title>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="stylesheet" type="text/css" href="../css/basic_style.css" media="screen"/>
+		<script src="../js/navbar.js" type="text/javascript"></script>
 	</head>
 
 	<body>
-		<ul>
-			<li><a href="profile.php">Home</a></li>
-			<li><a href="create.php">Create Message</a></li>
-			<li><a href="add.php">Add Recepients</a></li>
-			<li><a href="contacts.php">Contact List</a></li>
-		</ul>
+		<ul class="topnav" id="myTopnav">
+      <li><a href="profile.php">Home</a></li>
+      <li><a href="create.php">Create Message</a></li>
+      <li><a href="add.php">Add Recepients</a></li>
+      <li><a href="contacts.php">Contact List</a></li>
+      <li class="icon">
+        <a href="#" style="font-size:15px;" onclick="myFunction()">☰</a>
+      </li>
+    </ul>
+
   	<div class="forms">
   		<h1>Create your account here!</h1>
   		<form method="POST" action="#">

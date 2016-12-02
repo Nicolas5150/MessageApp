@@ -7,30 +7,35 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Add Contact</title>
-		<meta charset="utf-8">
-		<link rel="stylesheet" href="../css/addStyle.css" type="text/css" />
+		<title>Add Recepients</title>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="stylesheet" type="text/css" href="../css/basic_style.css" media="screen"/>
+		<script src="../js/navbar.js" type="text/javascript"></script>
 	</head>
 
 	<body>
-		<ul>
-			<li><a href="profile.php">Home</a></li>
-			<li><a href="create.php">Create Message</a></li>
-			<li><a href="add.php">Add Recepients</a></li>
-			<li><a href="contacts.php">Contact List</a></li>
+		<ul class="topnav" id="myTopnav">
+      <li><a href="profile.php">Home</a></li>
+      <li><a href="create.php">Create Message</a></li>
+      <li><a href="add.php">Add Recepients</a></li>
+      <li><a href="contacts.php">Contact List</a></li>
 			<li style="float: right"><a class="active" href="logout.php">Log Out</a></li>
-		</ul>
-
+      <li class="icon">
+        <a href="#" style="font-size:15px;" onclick="myFunction()">☰</a>
+      </li>
+    </ul>
+		<h2>Add a phone number to your contact list!</h2>
 		<div id="container">
 			<div id="phone">
-				<h2>Add a phone number to your contact list!</h2>
+
 				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				  First Name:<br>
 				  <input type="text" name="firstname"><br/><br/>
 					Last Name:<br>
 				  <input type="text" name="lastname"><br/><br/>
-				  Phone Number:<br>
-				  <input type="text" name="phone"><br/><br/>
+					Phone Number: (EX. 55555555555)<br>
+				  <input type="text" name="phone" maxlength="10"><br/><br/>
 					Carrier:<br>
 					<select name="carrier" id="carrier">
 					  <option value="txt.att.net">AT&amp;T</option>
@@ -56,26 +61,46 @@
 	  $firstname = $_POST['firstname'];
 	  $lastname = $_POST['lastname'];
 	  $phone = $_POST['phone'];
+		$phoneNumberErr = NULL;
 	  $carrier = $_POST['carrier'];
 	  $email = "N/A";
 	  if (isset($_POST['email'])) {
 	    $email = $_POST['email'];
 	  }
-		// get username of the loggedin individual into a var to create table from
-		$tableName = $_SESSION['userDetails'][3];
+		// Check to see the phone number section is actually filled out.
+		if (!empty($_POST["phone"]))
+	  {
+			// Check to see the phone number section filled out correctly.
+	    $phone = preg_replace('/[^0-9.]+/', '', $_POST["phone"]);
+	    if (strlen($phone) != 10) {
+				$phoneNumberErr = "Phone number must be only 10 numbers";
+				echo "<script type='text/javascript'>alert('$phoneNumberErr');</script>";
+	    }
 
-		// Find table that was created on register that correlates to the username loggedin
-	  $sql = "INSERT INTO $tableName (id, firstname, lastname, email, phone, carrier)
-		VALUES ('NULL', '$firstname', '$lastname', '$email', '$phone', '$carrier')";
-	  $insert = mysqli_query($connection, $sql);
-		// Provide the user with an alert if successful
-	  if ($insert == true) {
-			$message = "Added " .$phone;
-			echo "<script type='text/javascript'>alert('$message');</script>";
-	  }
-	  else {
-			$message = "Error - Did not add " .$phone;
-			echo "<script type='text/javascript'>alert('$message');</script>";
-	  }
+			else
+			{
+				// get username of the loggedin individual into a var to create table from
+				$tableName = $_SESSION['userDetails'][3];
+
+				// Find table that was created on register that correlates to the username loggedin
+			  $sql = "INSERT INTO $tableName (id, firstname, lastname, email, phone, carrier)
+				VALUES ('NULL', '$firstname', '$lastname', '$email', '$phone', '$carrier')";
+			  $insert = mysqli_query($connection, $sql);
+				// Provide the user with an alert if successful
+			  if ($insert == true) {
+					$message = "Added " .$phone;
+					echo "<script type='text/javascript'>alert('$message');</script>";
+			  }
+			  else {
+					$message = "Error - Did not add " .$phone;
+					echo "<script type='text/javascript'>alert('$message');</script>";
+			  }
+			}
+		}
+		else
+		{
+			$phoneNumberErr = "Please enter phone number!";
+			echo "<script type='text/javascript'>alert('$phoneNumberErr');</script>";
+		}
 	}
 ?>

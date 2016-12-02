@@ -8,18 +8,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href="../css/createStyle.css" rel="stylesheet" type="text/css">
 		<title>Create Message</title>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+		<link rel="stylesheet" type="text/css" href="../css/basic_style.css" media="screen"/>
+		<script src="../js/navbar.js" type="text/javascript"></script>
 	</head>
+
 	<body>
-		<ul>
-			<li><a href="profile.php">Home</a></li>
-			<li><a href="create.php">Create Message</a></li>
-			<li><a href="add.php">Add Recepients</a></li>
-			<li><a href="contacts.php">Contact List</a></li>
-		  <li style="float: right"><a class="active" href="logout.php">Log Out</a></li>
-		</ul>
-		<h2 align="center">Create your message!</h2>
+		<ul class="topnav" id="myTopnav">
+      <li><a href="profile.php">Home</a></li>
+      <li><a href="create.php">Create Message</a></li>
+      <li><a href="add.php">Add Recepients</a></li>
+      <li><a href="contacts.php">Contact List</a></li>
+			<li style="float: right"><a class="active" href="logout.php">Log Out</a></li>
+      <li class="icon">
+        <a href="#" style="font-size:15px;" onclick="myFunction()">☰</a>
+      </li>
+    </ul>
+
+		<h2>Create your message!</h2>
+		<h3>Message will be sent to all recipients</h3>
 
 		<div id="Message">
 				<form id="messageform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -27,7 +36,7 @@
 				  <input type="text" name="name"><br>
 				  <br>
 				  Message:<br>
-				  <textarea rows="4" cols="50" name="comment">Enter Message Here...</textarea>
+				  <textarea rows="4" cols="50" name="comment" placeholder="Enter message here"></textarea>
 
 				  <br>
 				  <input type="submit" name="submit" value="submit">

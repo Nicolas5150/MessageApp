@@ -1,0 +1,217 @@
+html {
+  height: 100%;
+}
+
+body {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#35d2f5+0,c33912+100 */
+  background: #35d2f5; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #35d2f5 0%, #c33912 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  #35d2f5 0%,#c33912 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  #35d2f5 0%,#c33912 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#35d2f5', endColorstr='#c33912',GradientType=1); /* IE6-9 fallback on horizontal gradient */
+  height: 100%;
+  margin: 0;
+}
+
+form {
+  margin: auto;
+	text-align: center;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+}
+
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+  font-size: 40px;
+	padding-left: 100px;
+	padding-right: 100px;
+  text-align: center;
+}
+
+h2 {
+	text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+}
+
+h3{
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+
+/*Unordered list items*/
+ul {
+  background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+ul.topnav {
+  background-color: #333;
+  list-style-type: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+ul.topnav li {
+  float: left;
+}
+
+ul.topnav li a {
+  color: #f2f2f2;
+  display: inline-block;
+  font-size: 17px;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+ul.topnav li a:hover {
+  background-color: #555;
+}
+
+ul.topnav li.icon {
+  display: none;
+}
+
+/*List items*/
+li {
+  float: left;
+}
+
+li a {
+  color: white;
+  display: block;
+  padding: 14px 16px;
+  text-align: center;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #58ccef;
+}
+
+/*Table items */
+table, td, th, tr {
+	border: 2px solid #ddd;
+	text-align: left;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th, td, tr  {
+	padding: 15px;
+}
+
+tr:hover{
+	background-color:#58ccef;
+}
+
+/*input text and submit button styles*/
+input[type=text], select {
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+	font-family: 'Play', sans-serif;
+  margin: 8px 0;
+  padding: 12px 20px;
+  text-align: center;
+  width: 50%;
+}
+input[type=password], select {
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+	font-family: 'Play', sans-serif;
+  margin: 8px 0;
+  padding: 12px 20px;
+	text-align:center;
+  width: 50%;
+}
+
+input[type=submit] {
+  background-color: #3B3B3B;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+	font-family: 'Play', sans-serif;
+  margin: 8px 0;
+  padding: 14px 20px;
+  width: 30%;
+}
+
+input[type=submit]:hover {
+	background-color: darkblue;
+	transition: all 0.3s ease 0s;
+}
+
+input[type=submit]:hover {
+  background-color: darkblue;
+}
+
+/*Id Styles*/
+#container{
+	margin: auto;
+	width: 100%;
+}
+
+#phone{
+	margin: auto;
+	padding:15px;
+	width:60%;
+	border: 2px solid #ddd;
+
+}
+
+#Message{
+	margin: auto;
+	width:40%;
+	border: 2px solid #ddd;
+	padding: 15px;
+}
+
+#messageform textarea {
+  width: 100%;
+}
+
+/* Media quiereys */
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
+}
