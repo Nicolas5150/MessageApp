@@ -65,8 +65,7 @@
       $_SESSION['userDetails'][6] = $row[7]; // email
       $_SESSION['userDetails'][7] = $row[8]; // gender
 
-  		echo "<h2> Hi, " . $_SESSION['userDetails'][3] . "you are logged in. </br> You will be redirected to your Profile Page. </h2>";
-      header("Refresh: 3; url=profile.php");
+      header("Refresh: 1; url=profile.php");
 		}
     else {
 			echo "<h2 class='loginerr'>Invalid Credentials. Please try again.</h2>";		//If no entry matches the query, a message displays.

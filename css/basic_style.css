@@ -176,6 +176,36 @@ input[type=submit]:hover {
 	width: 100%;
 }
 
+/* Register Section */
+a.login {
+	color: #F1E20B;
+}
+
+a.login:hover {
+	color: #BBD2FD;
+}
+
+.loggedin {
+	font-size: 15px;
+	color: #BBD2FD;
+}
+
+ .err {
+	font-size: 15px;
+	color: #800000;
+}
+
+.error {
+	font-size: 15px;
+	color: #800000;
+}
+
+.loginerr {
+	font-size: 20px;
+	color: #800000;
+}
+
+/* Profile Section */
 .profileImg {
   border: 2px solid #ddd;
   padding: 4px;
@@ -198,17 +228,18 @@ input[type=submit]:hover {
 
 /* Footer */
 .footer {
-  border-top: 1px solid #ddd;
-  bottom:0;
-  opacity: .6;
-  position:absolute;
+  border-top: .5px solid #ddd;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: .5px;
+  position: fixed;
   text-align: center;
-  width:100%;
 }
 
 .footer p {
   color: white;
-	font-size: 15px;
+	font-size: 8px;
 }
 
 /* Media quiereys */
