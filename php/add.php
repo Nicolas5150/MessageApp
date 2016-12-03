@@ -68,8 +68,7 @@
 	    $email = $_POST['email'];
 	  }
 		// Check to see the phone number section is actually filled out.
-		if (!empty($_POST["phone"]))
-	  {
+		if (!empty($_POST["phone"])) {
 			// Check to see the phone number section filled out correctly.
 	    $phone = preg_replace('/[^0-9.]+/', '', $_POST["phone"]);
 	    if (strlen($phone) != 10) {
@@ -77,28 +76,40 @@
 				echo "<script type='text/javascript'>alert('$phoneNumberErr');</script>";
 	    }
 
+			// Passed phone number check, make sure number is not already in table.
 			else
 			{
 				// get username of the loggedin individual into a var to create table from
 				$tableName = $_SESSION['userDetails'][3];
+				$sql = "SELECT * FROM $tableName WHERE phone='".$phone."' LIMIT 1";	//checks the server for a duplicate of the user defined username.
+				$result = mysqli_query($connection, $sql);
 
-				// Find table that was created on register that correlates to the username loggedin
-			  $sql = "INSERT INTO $tableName (id, firstname, lastname, email, phone, carrier)
-				VALUES ('NULL', '$firstname', '$lastname', '$email', '$phone', '$carrier')";
-			  $insert = mysqli_query($connection, $sql);
-				// Provide the user with an alert if successful
-			  if ($insert == true) {
-					$message = "Added " .$phone;
+				// Username already exists.
+				if (mysqli_num_rows($result) == 1) {
+					$message = $phone. " exists!";
 					echo "<script type='text/javascript'>alert('$message');</script>";
-			  }
-			  else {
-					$message = "Error - Did not add " .$phone;
-					echo "<script type='text/javascript'>alert('$message');</script>";
-			  }
+				}
+
+				// Number does does not exist in table yet.
+		    else {
+					// Find table that was created on register that correlates to the username loggedin
+				  $sql = "INSERT INTO $tableName (id, firstname, lastname, email, phone, carrier)
+					VALUES ('NULL', '$firstname', '$lastname', '$email', '$phone', '$carrier')";
+				  $insert = mysqli_query($connection, $sql);
+					// Provide the user with an alert if successful
+				  if ($insert == true) {
+						$message = "Added " .$phone;
+						echo "<script type='text/javascript'>alert('$message');</script>";
+				  }
+				  else {
+						$message = "Error - Did not add " .$phone;
+						echo "<script type='text/javascript'>alert('$message');</script>";
+				  }
+				}
 			}
 		}
-		else
-		{
+		// No phone number entered.
+		else {
 			$phoneNumberErr = "Please enter phone number!";
 			echo "<script type='text/javascript'>alert('$phoneNumberErr');</script>";
 		}
