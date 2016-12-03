@@ -43,15 +43,15 @@
   					<input name="lastname" type="text" placeholder="Last Name" class="box" value="">
   						<span class="error">* </span><br><br>
 
+						<input name="email" type="text" placeholder="Email" class="box" value="">
+	  					<span class="error">* </span><br><br>
+
   					<input name="phone" type="text" placeholder="Phone Number" size="10" maxlength="10" class="box" value="">
   					<span class="error">* </span>
   						<select name="phonelocation">
 									<option  value="home">Home</option>
   								<option  value="mobile">Mobile</option>
   						</select> <br><br>
-
-  					<input name="email" type="text" placeholder="Email" class="box" value="">
-  						<span class="error">* </span><br><br>
 
   					<select name="gender">
   						<option  value="male">Male</option>
@@ -61,10 +61,11 @@
   					<input type="submit" name="register" class="submit" value="Register"><br><br>
   		</form>
 
-      <form action="login.php">
+      <form action="index.php">
         <input type="submit" value="Have An Account?" />
       </form>
     </div>
+		<?php include("footer.php"); ?>
   </body>
 </html>
 

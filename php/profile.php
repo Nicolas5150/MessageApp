@@ -30,11 +30,17 @@
     <h2>Welcome To Your Profile!</h2>
     <div id="avatar">
       <?php
+			// Select temp profile gender image.
       if ($_SESSION['userDetails'][7] == "male") {
-        // Code to generate avatar goes here
-        // May be swapped later for actual profile picture
+				echo '<script type="text/javascript">',
+	     "addImage('../img/male.jpg');",
+	     '</script>';
       }
-
+			else {
+				echo '<script type="text/javascript">',
+	     "addImage('../img/female.jpg');",
+	     '</script>';
+			}
       ?>
     </div>
 
@@ -65,5 +71,6 @@
         ?>
       </tr>
     </table>
+		<?php include("footer.php"); ?>
   </body>
 </html>

@@ -37,11 +37,11 @@
 				  <br>
 				  Message:<br>
 				  <textarea rows="4" cols="50" name="comment" placeholder="Enter message here"></textarea>
-
 				  <br>
 				  <input type="submit" name="submit" value="submit">
 				</form>
 			</div>
+			<?php include("footer.php"); ?>
 	</body>
 </html>
 

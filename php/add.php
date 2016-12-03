@@ -28,8 +28,7 @@
 		<h2>Add a phone number to your contact list!</h2>
 		<div id="container">
 			<div id="phone">
-
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<form id="phoneform" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				  First Name:<br>
 				  <input type="text" name="firstname"><br/><br/>
 					Last Name:<br>
@@ -53,6 +52,7 @@
 				</form>
 			</div>
 		</div>
+		<?php include("footer.php"); ?>
 	</body>
 </html>
 

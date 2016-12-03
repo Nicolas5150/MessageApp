@@ -29,17 +29,17 @@
 
 		<h2>Welcome to the Message App, please log in to get started!</h2>
     <div class="forms">
-    	<h1>Log In to your account here!</h1>
-    		<form action="#" method="POST">
-    				<input name="username" type="text" placeholder="Username" class= "box" value=""><br>
-    				<input name="password" type="password" placeholder="Password" class= "box" value=""><br>
-    				<input type="submit" name="submit" class="submit" value="Login">
-    		</form><br>
+    	<form action="#" method="POST">
+    		<input name="username" type="text" placeholder="Username" class= "box" value=""><br>
+    		<input name="password" type="password" placeholder="Password" class= "box" value=""><br>
+    		<input type="submit" name="submit" class="submit" value="Login">
+    	</form><br>
 
-        <form action="register.php">
-          <input type="submit" value="No Account?" />
-        </form>
-      </div>
+      <form action="register.php">
+        <input type="submit" value="No Account?" />
+      </form>
+    </div>
+    <?php include("footer.php"); ?>
   </body>
 </html>
 
