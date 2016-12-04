@@ -38,6 +38,7 @@
 					Carrier:<br>
 					<select name="carrier" id="carrier">
 					  <option value="txt.att.net">AT&amp;T</option>
+						<option value="sms.mycricket.com">Cricket</option>
 						<option value="mymetropcs.com">Metro PCS</option>
 					  <option value="messaging.nextel.com">Nextel</option>
 						<option value="messaging.sprintpcs.com">Sprint</option>
