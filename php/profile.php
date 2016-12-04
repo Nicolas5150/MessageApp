@@ -19,7 +19,7 @@
 		<ul class="topnav" id="myTopnav">
       <li><a href="profile.php">Home</a></li>
       <li><a href="create.php">Create Message</a></li>
-      <li><a href="add.php">Add Recepients</a></li>
+      <li><a href="add.php">Add Recipients</a></li>
       <li><a href="contacts.php">Contact List</a></li>
 			<li style="float: right"><a class="active" href="logout.php">Log Out</a></li>
       <li class="icon">
